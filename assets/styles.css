@@ -57,3 +57,7 @@ textarea {
   padding-left: 0;
   padding-right: 0;
 }
+
+.picBg {
+  background-color: rgb(161, 155, 221) !important;
+}

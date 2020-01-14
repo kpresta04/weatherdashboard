@@ -81,7 +81,7 @@ $(document).ready(function() {
       // console.log(response);
       // console.log(response.weather[0].id);
       // console.log(iconCodes[803]);
-      const mainHTML = `<div class="card text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded" style="width: 18rem;">
+      const mainHTML = `<div class="picBg card text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded" style="width: 18rem;">
       <img src="https://openweathermap.org/img/wn/${
         iconCodes[response.weather[0].id]
       }@2x.png" class="card-img-top" alt="...">
@@ -109,7 +109,7 @@ $(document).ready(function() {
         const temp = response.list[i].main.temp.toFixed(1);
         // console.log(response);
         // console.log(response.list[i].weather[0].id);
-        const mainHTML = `<div class="card mx-2 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+        const mainHTML = `<div class=" picBg card mx-2 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
       <img src="https://openweathermap.org/img/wn/${
         iconCodes[response.list[i].weather[0].id]
       }@2x.png" class="card-img-top" alt="...">
