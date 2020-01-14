@@ -37,9 +37,10 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
       let addDays = 1;
-      for (let i = 0; i < 40; i += 9) {
+      for (let i = 1; i < 40; i += 9) {
         const temp = response.list[i].main.temp.toFixed(1);
-        console.log(response);
+        // console.log(response);
+        console.log(i);
         const mainHTML = `<div class="card mx-2" style="width: 18rem;">
       <img src="http://openweathermap.org/img/wn/11d@2x.png" class="card-img-top" alt="...">
   <div class="card-body">
