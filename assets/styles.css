@@ -59,5 +59,9 @@ textarea {
 }
 
 .picBg {
-  background-color: rgb(161, 155, 221) !important;
+  background-color: #554d8a !important;
+}
+
+.card-body {
+  background-color: white;
 }
