@@ -11,7 +11,7 @@ button {
   background-repeat: no-repeat;
   background-position: center;
   padding: 5px 10px 5px 10px;
-  margin-top: 0.5em;
+  /* margin-top: 0.5em; */
   border-radius: 8px;
   height: 3em;
   width: 3em;
@@ -45,4 +45,8 @@ textarea {
 
 #mainCard {
   display: flex;
+}
+
+#searchFormRow {
+  vertical-align: middle !important;
 }
