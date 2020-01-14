@@ -24,14 +24,22 @@
     <title>Weather Dashboard</title>
   </head>
   <body>
-    <div class="jumbotron jumbotron-fluid text-center">
-      <div class="container">
-        <h1 class="display-4">Weather Dashboard</h1>
+    <div class="col" id="headCol">
+      <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+          <h1 class="display-4">Weather Dashboard</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row mx-4 justify-content-center">
+      <div class="col-2 mx-auto" id="searchCol">
+        <h1>Search here</h1>
+        <button id="searchBtn"></button>
       </div>
     </div>
 
-    <div class="col text-center justify-content-center" id="mainCol">
-      <div class="row justify-content-center" id="mainRow"></div>
+    <div class="row justify-content-center" id="mainRow"></div>
+    <div class="col-10 text-center justify-content-center mx-auto" id="mainCol">
       <div class="row justify-content-center mt-4">
         <h1>5 Day Forecast:</h1>
       </div>
