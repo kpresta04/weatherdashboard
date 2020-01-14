@@ -27,7 +27,7 @@ $(document).ready(function() {
   </div>
 </div>`;
 
-      $("#mainRow").append(mainHTML);
+      $("#mainCard").append(mainHTML);
     });
   }
   function fiveDayForecast(cityName) {
