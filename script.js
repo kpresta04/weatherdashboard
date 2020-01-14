@@ -8,12 +8,26 @@ $(document).ready(function() {
     }
   ];
 
+  $("#submitBtn").on("click", submitClick);
+  $("#searchForm").on("submit", submitClick);
+
+  function submitClick(e) {
+    e.preventDefault();
+
+    if ($("#searchForm").val() !== "") {
+      todaysWeather($("#searchForm").val());
+      fiveDayForecast($("#searchForm").val());
+    }
+  }
+
   function todaysWeather(cityName) {
     const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&APPID=0635f6cc93f851c62608a2c527a89527`;
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
+      $("#mainCard").empty();
+
       const temp = response.main.temp.toFixed(1);
       // console.log(response);
       const mainHTML = `<div class="card text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded" style="width: 18rem;">
@@ -31,16 +45,17 @@ $(document).ready(function() {
     });
   }
   function fiveDayForecast(cityName) {
-    const queryURL = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&APPID=0635f6cc93f851c62608a2c527a89527`;
+    const queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&APPID=0635f6cc93f851c62608a2c527a89527`;
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
+      $("#5dayRow").empty();
       let addDays = 1;
       for (let i = 1; i < 40; i += 9) {
         const temp = response.list[i].main.temp.toFixed(1);
         // console.log(response);
-        console.log(i);
+        // console.log(i);
         const mainHTML = `<div class="card mx-2 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
       <img src="http://openweathermap.org/img/wn/11d@2x.png" class="card-img-top" alt="...">
   <div class="card-body">
