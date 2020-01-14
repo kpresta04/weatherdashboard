@@ -16,7 +16,7 @@ $(document).ready(function() {
     }).then(function(response) {
       const temp = response.main.temp.toFixed(1);
       // console.log(response);
-      const mainHTML = `<div class="card" style="width: 18rem;">
+      const mainHTML = `<div class="card text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded" style="width: 18rem;">
       <img src="http://openweathermap.org/img/wn/11d@2x.png" class="card-img-top" alt="...">
   <div class="card-body">
     <h2 class="card-title">${response.name} ${moment().format("l")}</h2>
@@ -41,7 +41,7 @@ $(document).ready(function() {
         const temp = response.list[i].main.temp.toFixed(1);
         // console.log(response);
         console.log(i);
-        const mainHTML = `<div class="card mx-2" style="width: 18rem;">
+        const mainHTML = `<div class="card mx-2 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
       <img src="http://openweathermap.org/img/wn/11d@2x.png" class="card-img-top" alt="...">
   <div class="card-body">
     <h2 class="card-title">${response.city.name} ${moment()

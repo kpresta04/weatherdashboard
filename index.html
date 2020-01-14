@@ -25,31 +25,33 @@
   </head>
   <body>
     <div class="col" id="headCol">
-      <div class="jumbotron jumbotron-fluid text-center">
-        <div class="container">
+      <div class="jumbotron jumbotron-fluid w-100">
+        <div class="container-fluid text-center">
           <h1 class="display-4">Weather Dashboard</h1>
         </div>
       </div>
     </div>
+
     <!-- <div class="row mx-4 justify-content-center"> -->
 
     <!-- </div> -->
+    <div class="container-fluid">
+      <div class="row flex-wrap" id="mainRow">
+        <div class="col-md-3 mx-2" id="searchCol">
+          <form class="form-inline align-middle" id="searchFormRow">
+            <label class="sr-only" for="inlineFormInputName2"> City Name</label>
+            <input
+              type="text"
+              class="form-control mx-auto"
+              id="inlineFormInputName2"
+              placeholder="Search for city"
+            />
 
-    <div class="row flex-wrap" id="mainRow">
-      <div class="col mx-2" id="searchCol">
-        <form class="form-inline align-middle" id="searchFormRow">
-          <label class="sr-only" for="inlineFormInputName2">Name</label>
-          <input
-            type="text"
-            class="form-control mr-sm-2"
-            id="inlineFormInputName2"
-            placeholder="Search for city"
-          />
-
-          <button type="submit"></button>
-        </form>
+            <button type="submit"></button>
+          </form>
+        </div>
+        <div class="col-md-4 offset-md-1" id="mainCard"></div>
       </div>
-      <div class="col-10 mx-auto justify-content-center" id="mainCard"></div>
     </div>
     <div class="col text-center justify-content-left mx-auto" id="mainCol">
       <div class="row justify-content-center mt-4">
