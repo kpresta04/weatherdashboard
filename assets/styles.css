@@ -33,3 +33,7 @@ textarea {
   resize: none;
   background-color: inherit;
 }
+
+#mainCol {
+  display: flex;
+}

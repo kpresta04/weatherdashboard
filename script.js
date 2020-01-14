@@ -8,11 +8,18 @@ $(document).ready(function() {
       let temp = (response.main.temp - 273.15) * 1.8 + 32;
       temp = temp.toFixed(1);
       console.log(response);
-      const mainHTML = `<h2>${response.name} ${moment().format("l")}
-      <h3>Temperature: ${temp}°F</h3>
-      <h3>Humidity: ${response.main.humidity}%</h3>
-      <h3>Wind speed: ${response.wind.speed} m/s</h3>
-      <h3>${response.weather[0].main}</h3>`;
+      const mainHTML = `
+      
+      
+      <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h2 class="card-title">${response.name} ${moment().format("l")}</h2>
+    <h5>Temperature: ${temp}°F</h5>
+      <h5>Humidity: ${response.main.humidity}%</h5>
+      <h5>Wind speed: ${response.wind.speed} m/s</h5>
+      <h5>${response.weather[0].main}</h5>
+  </div>
+</div>`;
 
       $("#mainCol").append(mainHTML);
     });
