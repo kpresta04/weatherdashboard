@@ -83,3 +83,7 @@ textarea {
 #mainRow {
   height: 90%;
 }
+
+#UVLabel {
+  margin: 0px auto;
+}

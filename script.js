@@ -86,8 +86,19 @@ $(document).ready(function() {
         method: "GET"
       }).then(function(response) {
         console.log(response.value);
-        $("#UVLabel").text(`UV Index: ${response.value}`);
-        $("#UVLabel").css("background-color", "yellow");
+        $("#UVLabel").text(`${response.value}`);
+        //color code background based on UV index
+        if (response.value < 3) {
+          $("#UVLabel").css("background-color", "green");
+        } else if (response.value >= 3 && response.value < 6) {
+          $("#UVLabel").css("background-color", "yellow");
+        } else if (response.value >= 6 && response.value < 8) {
+          $("#UVLabel").css("background-color", "orange");
+        } else if (response.value >= 8 && response.value < 11) {
+          $("#UVLabel").css("background-color", "red");
+        } else {
+          $("#UVLabel").css("background-color", "violet");
+        }
       });
       const temp = response.main.temp.toFixed(1);
       // console.log(response);
@@ -103,7 +114,7 @@ $(document).ready(function() {
     <h5>Temperature: ${temp}°F</h5>
       <h5>Humidity: ${response.main.humidity}%</h5>
       <h5>Wind speed: ${response.wind.speed} MPH</h5>
-      <h5 id="UVLabel"></h5>
+      <h5>UV Index: <p class="w-50"id="UVLabel"></p></h5>
   </div>
 </div>`;
 
