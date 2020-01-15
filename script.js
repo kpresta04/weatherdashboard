@@ -8,7 +8,9 @@ $(document).ready(function() {
 
   function listClick(e) {
     if (e.target.tagName === "LI") {
-      console.log($(e.target).text());
+      // console.log($(e.target).text());
+      todaysWeather($(e.target).text());
+      fiveDayForecast($(e.target).text());
     }
   }
 
@@ -77,6 +79,9 @@ $(document).ready(function() {
     e.preventDefault();
 
     if ($("#searchForm").val() !== "") {
+      $("#cityListItems").append(
+        `<li class="list-group-item">${$("#searchForm").val()}</li>`
+      );
       todaysWeather($("#searchForm").val());
       fiveDayForecast($("#searchForm").val());
     }

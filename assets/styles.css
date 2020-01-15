@@ -81,9 +81,9 @@ textarea {
   background-color: rgb(233, 236, 239);
 }
 
-/* #searchForm {
-  width: 90%;
-} */
+#searchForm {
+  height: 3em;
+}
 
 #middleCol {
   height: 100%;
