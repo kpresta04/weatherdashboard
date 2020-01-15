@@ -6,17 +6,26 @@ html {
 }
 button {
   color: white;
-  background-color: #483d8b;
+  background-color: #44415a;
+
+  padding: 5px 10px 5px 10px;
+  border-radius: 8px;
+  height: 3em;
+}
+button:hover {
+  background: #9370db;
+}
+#submitBtn {
+  color: white;
+  background-color: #44415a;
+
   background-image: url(./icons8-search-64.png);
   background-repeat: no-repeat;
   background-position: center;
-  padding: 5px 10px 5px 10px;
-  /* margin-top: 0.5em; */
-  border-radius: 8px;
   height: 3em;
   width: 3em;
 }
-button:hover {
+#submitBtn:hover {
   background: #9370db;
   background-image: url(./icons8-search-64.png);
   background-repeat: no-repeat;

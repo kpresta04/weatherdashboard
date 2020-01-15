@@ -38,7 +38,7 @@
     <div class="container-fluid" id="mainContainer">
       <div class="row flex-wrap" id="mainRow">
         <div class="col-md-2 mx-2" id="searchCol">
-          <form class="form-inline" id="searchFormRow">
+          <!-- <form class="form-inline" id="searchFormRow">
             <label class="sr-only" for="inlineFormInputName2"> City Name</label>
             <input
               type="text"
@@ -48,17 +48,41 @@
             />
 
             <button type="submit" id="submitBtn"></button>
+          </form> -->
+          <form class="form-inline mt-2">
+            
+          
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Name of City</label>
+            <div class="input-group mb-2 mr-sm-2">
+              <div class="input-group-prepend">
+                 <!-- <div class="input-group-text">Hey</div> -->
+                 <button type="submit" id="submitBtn"></button>
+                 
+
+              </div>
+              <input type="text" class="form-control mt-1" id="searchForm" placeholder="Search for US City">
+            </div>
+          
+            
+          
           </form>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Chicago</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
+          <button data-toggle="collapse" data-target="#cityList">Saved Cities</button>
+
+<div id="cityList" class="collapse">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Chicago</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+
+</div>
+         
+          
         </div>
         <div class="col-md" id="middleCol">
-          <div class="row justify-content-center my-4">
+          <div class="row justify-content-center my-4 text-center">
             <h1 id="TodayLabel"></h1>
           </div>
           <div class="row" id="mainCard"></div>

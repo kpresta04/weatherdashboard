@@ -2,10 +2,14 @@ $(document).ready(function() {
   //hide 5 day forecast label until ready
   $("#5dayLabel").hide();
 
-  $("li").on("click", listClick);
+  $(document).on("click", listClick);
+
+  //click event only runs if tagname is LI
 
   function listClick(e) {
-    console.log(e.target.textContent);
+    if (e.target.tagName === "LI") {
+      console.log($(e.target).text());
+    }
   }
 
   const iconCodes = {
@@ -91,7 +95,7 @@ $(document).ready(function() {
         url: uvURL,
         method: "GET"
       }).then(function(response) {
-        console.log(response.value);
+        // console.log(response.value);
         $("#UVLabel").text(`${response.value}`);
         //color code background based on UV index
         if (response.value < 3) {
