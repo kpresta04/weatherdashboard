@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  //hide 5 day forecast label until ready
+  $("#5dayLabel").hide();
+
   const iconCodes = {
     200: "11d",
     201: "11d",
@@ -75,10 +78,20 @@ $(document).ready(function() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
+      const uvURL = `https://api.openweathermap.org/data/2.5/uvi?APPID=0635f6cc93f851c62608a2c527a89527&lat=${response.coord.lat}&lon=${response.coord.lon}`;
       $("#mainCard").empty();
-
+      //second ajax call for UV index api
+      $.ajax({
+        url: uvURL,
+        method: "GET"
+      }).then(function(response) {
+        console.log(response.value);
+        $("#UVLabel").text(`UV Index: ${response.value}`);
+        $("#UVLabel").css("background-color", "yellow");
+      });
       const temp = response.main.temp.toFixed(1);
       // console.log(response);
+      // console.log(response.coord.lon, response.coord.lat);
       // console.log(response.weather[0].id);
       // console.log(iconCodes[803]);
       const mainHTML = `<div class="picBg card text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded" style="width: 18rem;">
@@ -90,7 +103,7 @@ $(document).ready(function() {
     <h5>Temperature: ${temp}°F</h5>
       <h5>Humidity: ${response.main.humidity}%</h5>
       <h5>Wind speed: ${response.wind.speed} MPH</h5>
-      <h5>${response.weather[0].main}</h5>
+      <h5 id="UVLabel"></h5>
   </div>
 </div>`;
 
@@ -103,8 +116,11 @@ $(document).ready(function() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
+      $("#5dayLabel").show();
+
       $("#5dayRow").empty();
       let addDays = 1;
+
       for (let i = 1; i < 40; i += 9) {
         const temp = response.list[i].main.temp.toFixed(1);
         // console.log(response);
@@ -113,7 +129,7 @@ $(document).ready(function() {
       <img src="https://openweathermap.org/img/wn/${
         iconCodes[response.list[i].weather[0].id]
       }@2x.png" class="card-img-top" alt="...">
-  <div class="card-body">
+  <div class="card-body text-center">
     <h3 class="card-title">${response.city.name} ${moment()
           .add(addDays, "days")
           .format("l")}</h3>

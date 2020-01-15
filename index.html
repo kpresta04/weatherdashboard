@@ -35,7 +35,7 @@
     <!-- <div class="row mx-4 justify-content-center"> -->
 
     <!-- </div> -->
-    <div class="container-fluid">
+    <div class="container-fluid" id="mainContainer">
       <div class="row flex-wrap" id="mainRow">
         <div class="col-md-2 mx-2" id="searchCol">
           <form class="form-inline" id="searchFormRow">
@@ -44,19 +44,21 @@
               type="text"
               class="form-control mx-auto"
               id="searchForm"
-              placeholder="Search for city"
+              placeholder="Search for US city"
             />
 
             <button type="submit" id="submitBtn"></button>
           </form>
         </div>
-        <div class="col-md">
+        <div class="col-md" id="middleCol">
           <div class="row" id="mainCard"></div>
           <div class="row justify-content-center mt-4">
-            <h1>5 Day Forecast:</h1>
+            <h1 id="5dayLabel">5 Day Forecast:</h1>
           </div>
           <div class="row justify-content-center mt-4" id="5dayRow"></div>
         </div>
+        <div class="col-md-2" id="emptySpacingCol">
+
       </div>
     </div>
     <!-- <div class="col text-center justify-content-left mx-auto" id="mainCol">

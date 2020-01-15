@@ -64,7 +64,22 @@ textarea {
 
 .card-body {
   background-color: white;
+  margin-bottom: -1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 #searchCol {
   background-color: gray;
+}
+
+#searchForm {
+  width: 90%;
+}
+
+#middleCol {
+  height: 100%;
+}
+#mainContainer,
+#mainRow {
+  height: 90%;
 }
