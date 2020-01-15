@@ -94,7 +94,7 @@ $(document).ready(function() {
   </div>
 </div>`;
 
-      $("#mainCard").append(mainHTML);
+      $("#mainCard").prepend(mainHTML);
     });
   }
   function fiveDayForecast(cityName) {

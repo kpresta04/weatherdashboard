@@ -65,3 +65,6 @@ textarea {
 .card-body {
   background-color: white;
 }
+#searchCol {
+  background-color: gray;
+}
