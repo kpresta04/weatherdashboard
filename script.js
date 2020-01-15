@@ -105,16 +105,16 @@ $(document).ready(function() {
       // console.log(response.coord.lon, response.coord.lat);
       // console.log(response.weather[0].id);
       // console.log(iconCodes[803]);
-      const mainHTML = `<div class="picBg card text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded" style="width: 18rem;">
+      const mainHTML = `<div class="picBg card text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded">
       <img src="https://openweathermap.org/img/wn/${
         iconCodes[response.weather[0].id]
-      }@2x.png" class="card-img-top" alt="...">
+      }@2x.png" class="card-img-top" id="topImg" alt="...">
   <div class="card-body">
     <h3 class="card-title">${response.name} ${moment().format("l")}</h3>
     <h5>Temperature: ${temp}°F</h5>
       <h5>Humidity: ${response.main.humidity}%</h5>
       <h5>Wind speed: ${response.wind.speed} MPH</h5>
-      <h5>UV Index: <p class="w-50"id="UVLabel"></p></h5>
+      <h5>UV Index: <p id="UVLabel"></p></h5>
   </div>
 </div>`;
 
@@ -139,11 +139,11 @@ $(document).ready(function() {
         const mainHTML = `<div class=" picBg card mx-1 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
       <img src="https://openweathermap.org/img/wn/${
         iconCodes[response.list[i].weather[0].id]
-      }@2x.png" class="card-img-top" alt="...">
+      }@2x.png" class="card-img-top FiveDayImg"  alt="...">
   <div class="card-body text-center">
-    <h3 class="card-title">${response.city.name} ${moment()
-          .add(addDays, "days")
-          .format("l")}</h3>
+    <h3 class="card-title"> ${moment()
+      .add(addDays, "days")
+      .format("l")}</h3>
     <h5>Temperature: ${temp}°F</h5>
       <h5>Humidity: ${response.list[i].main.humidity}%</h5>
       <h5>Wind speed: ${response.list[i].wind.speed} MPH</h5>

@@ -59,7 +59,7 @@ textarea {
 }
 
 .picBg {
-  background-color: #554d8a !important;
+  background-color: #6e6991 !important;
 }
 
 .card-body {
@@ -79,11 +79,31 @@ textarea {
 #middleCol {
   height: 100%;
 }
-#mainContainer,
+/* #mainContainer,
 #mainRow {
   height: 90%;
-}
+} */
 
 #UVLabel {
   margin: 0px auto;
+  display: inline;
+}
+#topImg {
+  /* width: 30%; */
+  width: 100px;
+  height: 100px;
+  margin: 0px auto;
+}
+
+.FiveDayImg {
+  width: 25%;
+  margin: 0px auto;
+}
+
+.card {
+  width: 254px;
+}
+
+#jumbo {
+  margin-bottom: 0;
 }
