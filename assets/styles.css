@@ -69,12 +69,12 @@ textarea {
   margin-right: -1rem;
 }
 #searchCol {
-  background-color: gray;
+  background-color: rgb(233, 236, 239);
 }
 
-#searchForm {
+/* #searchForm {
   width: 90%;
-}
+} */
 
 #middleCol {
   height: 100%;
@@ -106,4 +106,6 @@ textarea {
 
 #jumbo {
   margin-bottom: 0;
+  color: white;
+  background-color: #44415a;
 }

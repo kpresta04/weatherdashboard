@@ -2,6 +2,12 @@ $(document).ready(function() {
   //hide 5 day forecast label until ready
   $("#5dayLabel").hide();
 
+  $("li").on("click", listClick);
+
+  function listClick(e) {
+    console.log(e.target.textContent);
+  }
+
   const iconCodes = {
     200: "11d",
     201: "11d",
@@ -100,17 +106,19 @@ $(document).ready(function() {
           $("#UVLabel").css("background-color", "violet");
         }
       });
+      $("#TodayLabel").text(`${response.name} ${moment().format("l")}`);
       const temp = response.main.temp.toFixed(1);
       // console.log(response);
       // console.log(response.coord.lon, response.coord.lat);
       // console.log(response.weather[0].id);
       // console.log(iconCodes[803]);
-      const mainHTML = `<div class="picBg card text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+      const mainHTML = `
+      <div class="picBg card text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded">
       <img src="https://openweathermap.org/img/wn/${
         iconCodes[response.weather[0].id]
       }@2x.png" class="card-img-top" id="topImg" alt="...">
   <div class="card-body">
-    <h3 class="card-title">${response.name} ${moment().format("l")}</h3>
+    
     <h5>Temperature: ${temp}°F</h5>
       <h5>Humidity: ${response.main.humidity}%</h5>
       <h5>Wind speed: ${response.wind.speed} MPH</h5>
