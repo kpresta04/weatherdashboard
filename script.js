@@ -15,6 +15,8 @@ $(document).ready(function() {
 
   let getObj = JSON.parse(localStorage.getItem("storeObj"));
   if (getObj !== null) {
+    $("#sideForm").show();
+
     // console.log(getObj);
     searchHistory = getObj;
     searchHistory.forEach(function(entry) {
@@ -116,8 +118,6 @@ $(document).ready(function() {
     }
 
     if ($(targ).val() !== "") {
-      $("#searchCol").css("background-color", "rgb(233, 236, 239");
-
       $("#sideForm").show();
 
       //add city name to search history

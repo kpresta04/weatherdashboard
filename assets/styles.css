@@ -6,6 +6,7 @@ html {
   position: fixed;
   overflow-y: scroll;
   overflow-x: hidden;
+  background-color: rgb(233, 236, 239);
 }
 button {
   color: white;
