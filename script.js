@@ -99,7 +99,7 @@ $(document).ready(function() {
       searchHistory.push($("#searchForm").val());
 
       // delete any duplicates from search history
-      removeDups(searchHistory);
+      searchHistory = removeDups(searchHistory);
 
       console.log(searchHistory);
 
