@@ -6,6 +6,21 @@ $(document).ready(function() {
 
   //click event only runs if tagname is LI
 
+  //array of cities that have been searched for
+
+  let searchHistory = [];
+
+  // function that removes duplicates from an array
+  function removeDups(names) {
+    let unique = {};
+    names.forEach(function(i) {
+      if (!unique[i]) {
+        unique[i] = true;
+      }
+    });
+    return Object.keys(unique);
+  }
+
   function listClick(e) {
     if (e.target.tagName === "LI") {
       // console.log($(e.target).text());
@@ -79,11 +94,26 @@ $(document).ready(function() {
     e.preventDefault();
 
     if ($("#searchForm").val() !== "") {
-      $("#cityListItems").append(
-        `<li class="list-group-item">${$("#searchForm").val()}</li>`
-      );
+      //add city name to search history
+
+      searchHistory.push($("#searchForm").val());
+
+      // delete any duplicates from search history
+      removeDups(searchHistory);
+
+      console.log(searchHistory);
+
+      //clear saved cities list and add one list item for city in search history
+
+      $("#cityListItems").empty();
+
+      searchHistory.forEach(function(entry) {
+        $("#cityListItems").append(`<li class="list-group-item">${entry}</li>`);
+      });
+
       todaysWeather($("#searchForm").val());
       fiveDayForecast($("#searchForm").val());
+      $("#searchForm").val("");
     }
   }
 
