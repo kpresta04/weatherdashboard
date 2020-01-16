@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap"
+      href="https://fonts.googleapis.com/css?family=Marcellus+SC&display=swap"
       rel="stylesheet"
     />
 
@@ -49,37 +49,55 @@
 
             <button type="submit" id="submitBtn"></button>
           </form> -->
-          <form class="form-inline mt-2">
-            
-          
-            <label class="sr-only" for="inlineFormInputGroupUsername2">Name of City</label>
-            <div class="input-group mb-2 mr-sm-2">
-              <div class="input-group-prepend">
-                 <!-- <div class="input-group-text">Hey</div> -->
-                 <button type="submit" id="submitBtn"></button>
-                 
-
+          <div id="sideForm">
+            <form class="form-inline mt-2">
+              <label class="sr-only" for="inlineFormInputGroupUsername2"
+                >Name of City</label
+              >
+              <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                  <!-- <div class="input-group-text">Hey</div> -->
+                  <button type="submit" id="submitBtn"></button>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="searchForm"
+                  placeholder="City name"
+                />
               </div>
-              <input type="text" class="form-control" id="searchForm" placeholder="City name">
+            </form>
+            <button data-toggle="collapse" data-target="#cityList">
+              Saved Cities
+            </button>
+
+            <div class="mb-2" id="cityList" class="collapse">
+              <ul class="list-group list-group-flush" id="cityListItems">
+                <!-- <li class="list-group-item">Chicago</li> -->
+              </ul>
             </div>
-          
-            
-          
-          </form>
-          <button  data-toggle="collapse" data-target="#cityList">Saved Cities</button>
-
-<div class="mb-2" id="cityList" class="collapse">
-  <ul class="list-group list-group-flush" id="cityListItems">
-    <!-- <li class="list-group-item">Chicago</li> -->
-  </ul>
-
-</div>
-         
-          
+          </div>
         </div>
         <div class="col-md" id="middleCol">
           <div class="row justify-content-center my-4 text-center">
             <h1 id="TodayLabel"></h1>
+            <form class="form-inline mt-2" id="form1">
+              <label class="sr-only" for="inlineFormInputGroupUsername2"
+                >Name of City</label
+              >
+              <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                  <!-- <div class="input-group-text">Hey</div> -->
+                  <button type="submit" id="submitBtn1"></button>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="searchForm1"
+                  placeholder="City name"
+                />
+              </div>
+            </form>
           </div>
           <div class="row" id="mainCard"></div>
           <div class="row justify-content-center mt-4">
@@ -87,8 +105,7 @@
           </div>
           <div class="row justify-content-center mt-4" id="5dayRow"></div>
         </div>
-        <div class="col-md-2" id="emptySpacingCol">
-
+        <div class="col-md-2" id="emptySpacingCol"></div>
       </div>
     </div>
     <!-- <div class="col text-center justify-content-left mx-auto" id="mainCol">

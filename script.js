@@ -1,6 +1,7 @@
 $(document).ready(function() {
   //hide 5 day forecast label until ready
   $("#5dayLabel").hide();
+  $("#sideForm").hide();
 
   $(document).on("click", listClick);
 
@@ -9,6 +10,17 @@ $(document).ready(function() {
   //array of cities that have been searched for
 
   let searchHistory = [];
+
+  //add anything that's been saved to local storage to searchHistory
+
+  let getObj = JSON.parse(localStorage.getItem("storeObj"));
+  if (getObj !== null) {
+    // console.log(getObj);
+    searchHistory = getObj;
+    searchHistory.forEach(function(entry) {
+      $("#cityListItems").append(`<li class="list-group-item">${entry}</li>`);
+    });
+  }
 
   // function that removes duplicates from an array
   function removeDups(names) {
@@ -88,15 +100,29 @@ $(document).ready(function() {
   };
 
   $("#submitBtn").on("click", submitClick);
+  $("#submitBtn1").on("click", submitClick);
   $("#searchForm").on("submit", submitClick);
+  $("#searchForm1").on("submit", submitClick);
+  let targ;
 
   function submitClick(e) {
     e.preventDefault();
+    console.log(e.target.id.includes("1"));
 
-    if ($("#searchForm").val() !== "") {
+    if (e.target.id.includes("1")) {
+      targ = $("#searchForm1");
+    } else {
+      targ = $("#searchForm");
+    }
+
+    if ($(targ).val() !== "") {
+      $("#searchCol").css("background-color", "rgb(233, 236, 239");
+
+      $("#sideForm").show();
+
       //add city name to search history
 
-      searchHistory.push($("#searchForm").val());
+      searchHistory.push($(targ).val());
 
       // delete any duplicates from search history
       searchHistory = removeDups(searchHistory);
@@ -105,15 +131,17 @@ $(document).ready(function() {
 
       //clear saved cities list and add one list item for city in search history
 
+      localStorage.setItem("storeObj", JSON.stringify(searchHistory));
+
       $("#cityListItems").empty();
 
       searchHistory.forEach(function(entry) {
         $("#cityListItems").append(`<li class="list-group-item">${entry}</li>`);
       });
 
-      todaysWeather($("#searchForm").val());
-      fiveDayForecast($("#searchForm").val());
-      $("#searchForm").val("");
+      todaysWeather($(targ).val());
+      fiveDayForecast($(targ).val());
+      $(targ).val("");
     }
   }
 
@@ -125,6 +153,7 @@ $(document).ready(function() {
     }).then(function(response) {
       const uvURL = `https://api.openweathermap.org/data/2.5/uvi?APPID=0635f6cc93f851c62608a2c527a89527&lat=${response.coord.lat}&lon=${response.coord.lon}`;
       $("#mainCard").empty();
+      $("#form1").empty();
       //second ajax call for UV index api
       $.ajax({
         url: uvURL,
@@ -203,6 +232,6 @@ $(document).ready(function() {
     });
   }
 
-  todaysWeather("Overland Park");
-  fiveDayForecast("Overland Park");
+  // todaysWeather("Overland Park");
+  // fiveDayForecast("Overland Park");
 });

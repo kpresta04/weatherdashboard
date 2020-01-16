@@ -1,8 +1,11 @@
 body,
 html {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Marcellus SC", serif;
   height: 100%;
-  width: 102%;
+  width: 100%;
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 button {
   color: white;
@@ -15,7 +18,8 @@ button {
 button:hover {
   background: #9370db;
 }
-#submitBtn {
+#submitBtn,
+#submitBtn1 {
   color: white;
   background-color: #44415a;
 
@@ -25,7 +29,8 @@ button:hover {
   height: 3em;
   width: 3em;
 }
-#submitBtn:hover {
+#submitBtn:hover,
+#submitBtn1:hover {
   background: #9370db;
   background-image: url(./icons8-search-64.png);
   background-repeat: no-repeat;
@@ -77,10 +82,14 @@ textarea {
   margin-left: -1rem;
   margin-right: -1rem;
 }
-#searchCol {
+/* #searchCol {
   background-color: rgb(233, 236, 239);
-}
+} */
+#searchForm1 {
+  width: 17em;
 
+  height: 3em;
+}
 #searchForm {
   height: 3em;
 }
