@@ -125,31 +125,8 @@ $(document).ready(function() {
     }
     $("#TodayLabel").text("City not found. Try again.");
     $("#mainCard").empty();
-    $("#form1").empty();
     $("#5dayRow").empty();
     $("#5dayLabel").hide();
-
-    $("#form1").append(`<div class="w-100">
-    <h3 id="landingTitle">
-      Search for a city to display the current weather and a 5 day
-      forecast.
-    </h3>
-  </div>
-  <label class="sr-only" for="inlineFormInputGroupUsername2"
-    >Name of City</label
-  >
-  <div class="input-group mb-2 mr-sm-2 w-100">
-    <div class="input-group-prepend">
-      <!-- <div class="input-group-text">Hey</div> -->
-      <button type="submit" id="submitBtn1"></button>
-    </div>
-    <input
-      type="text"
-      class="form-control"
-      id="searchForm1"
-      placeholder="City name"
-    />
-  </div>`);
   });
 
   function submitClick(e) {
