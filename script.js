@@ -107,9 +107,54 @@ $(document).ready(function() {
   $("#searchForm1").on("submit", submitClick);
   let targ;
 
+  $(document).ajaxError(function(event, request, settings) {
+    // console.log(settings.url);
+
+    let citySubstring = settings.url.substring(
+      settings.url.lastIndexOf("q=") + 2,
+      settings.url.lastIndexOf("&") - 15
+    );
+    // console.log(citySubstring);
+    if (searchHistory.includes(citySubstring)) {
+      searchHistory.pop(citySubstring);
+      localStorage.setItem("storeObj", JSON.stringify(searchHistory));
+      $("#cityListItems").empty();
+      searchHistory.forEach(function(entry) {
+        $("#cityListItems").append(`<li class="list-group-item">${entry}</li>`);
+      });
+    }
+    $("#TodayLabel").text("City not found. Try again.");
+    $("#mainCard").empty();
+    $("#form1").empty();
+    $("#5dayRow").empty();
+    $("#5dayLabel").hide();
+
+    $("#form1").append(`<div class="w-100">
+    <h3 id="landingTitle">
+      Search for a city to display the current weather and a 5 day
+      forecast.
+    </h3>
+  </div>
+  <label class="sr-only" for="inlineFormInputGroupUsername2"
+    >Name of City</label
+  >
+  <div class="input-group mb-2 mr-sm-2 w-100">
+    <div class="input-group-prepend">
+      <!-- <div class="input-group-text">Hey</div> -->
+      <button type="submit" id="submitBtn1"></button>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      id="searchForm1"
+      placeholder="City name"
+    />
+  </div>`);
+  });
+
   function submitClick(e) {
     e.preventDefault();
-    console.log(e.target.id.includes("1"));
+    // console.log(e.target.id.includes("1"));
 
     if (e.target.id.includes("1")) {
       targ = $("#searchForm1");
@@ -127,7 +172,7 @@ $(document).ready(function() {
       // delete any duplicates from search history
       searchHistory = removeDups(searchHistory);
 
-      console.log(searchHistory);
+      // console.log(searchHistory);
 
       //clear saved cities list and add one list item for city in search history
 
@@ -155,6 +200,7 @@ $(document).ready(function() {
       $("#mainCard").empty();
       $("#form1").empty();
       //second ajax call for UV index api
+      // console.log(response);
       $.ajax({
         url: uvURL,
         method: "GET"
